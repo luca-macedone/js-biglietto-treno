@@ -7,3 +7,16 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.card {
+    min-height: 5rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background-color: #FFF6FF;
+    color: #63BAAB;
+    border: 2px solid #63BAAB;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem #0000003b;
+}

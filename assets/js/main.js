@@ -24,17 +24,29 @@ let price;
 const distance = prompt('Per favore inserire la distanza in km da percorrere.');
 const userAge = prompt('Per favore inserire la propria età');
 
-// se l'utente è minorenne..
-if(userAge < 18){
-    // calcolo il prezzo applicando lo sconto per minorenni
-    price = (distance * priceFactor) - ((distance * priceFactor) * discountUnder18);
-
-} else if(userAge > 65){
-    // calcolo il prezzo applicando lo sconto per anziani
-    price = (distance * priceFactor) - ((distance * priceFactor) * discountOver65);
-}else{
-    // calcolo il prezzo senza sconti
+// Check dei dati inseriti
+// se viene inserita una distanza negativa, manda un alert
+if(distance <= 0) alert("ERRORE: Iserire una distanza corretta.");
+// se viene inserita una età negativa, manda un alert
+else if(userAge < 0) alert("ERRORE: Inserire l'età corretta.")
+// altrimenti puoi continuare
+else{
+    // calcolo il prezzo reale
     price = (distance * priceFactor);
+    // se l'utente è minorenne..
+    if(userAge < 18){
+        // calcolo il prezzo applicando lo sconto per minorenni
+        price *= discountUnder18;
+    
+    } else if(userAge > 65){ // altrimenti, se è un anziano
+        // calcolo il prezzo applicando lo sconto per anziani
+        price *= discountOver65;
+    }
+    // se non è uno dei casi precedenti posso stampare il risultato senza sconti
+    // il risultato lo stampo normalizzato con due decimali
+    //console.log(`Il prezzo del tuo biglietto sarà €${price.toFixed(2)}`);
+    const resultBox = document.getElementById("result");
+    
+    console.log(resultBox);
+    resultBox.innerHTML = `Il prezzo del tuo biglietto sarà €${price.toFixed(2)}`;
 }
-
-console.log(`Il prezzo del tuo biglietto sarà €${price.toFixed(2)}`);
