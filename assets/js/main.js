@@ -26,9 +26,9 @@ const userAge = prompt('Per favore inserire la propria età');
 
 // Check dei dati inseriti
 // se viene inserita una distanza negativa, manda un alert
-if(distance <= 0) alert("ERRORE: Iserire una distanza corretta.");
+if(isNaN(distance) || distance <= 0) alert("ERRORE: Iserire una distanza corretta.");
 // se viene inserita una età negativa, manda un alert
-else if(userAge < 0) alert("ERRORE: Inserire l'età corretta.")
+else if(isNaN(userAge) || userAge <= 0) alert("ERRORE: Inserire l'età corretta.")
 // altrimenti puoi continuare
 else{
     // calcolo il prezzo reale
